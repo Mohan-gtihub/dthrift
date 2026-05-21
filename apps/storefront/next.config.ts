@@ -56,6 +56,22 @@ const nextConfig: NextConfig = {
         hostname: "**.trycloudflare.com",
         pathname: "/rails/active_storage/**",
       },
+      // Render-hosted Spree backend (free/paid web services use *.onrender.com)
+      {
+        protocol: "https",
+        hostname: "**.onrender.com",
+        pathname: "/rails/active_storage/**",
+      },
+      // Custom backend domain: set NEXT_PUBLIC_BACKEND_IMAGE_HOST (e.g. api.your-store.com)
+      ...(process.env.NEXT_PUBLIC_BACKEND_IMAGE_HOST
+        ? [
+            {
+              protocol: "https" as const,
+              hostname: process.env.NEXT_PUBLIC_BACKEND_IMAGE_HOST,
+              pathname: "/rails/active_storage/**",
+            },
+          ]
+        : []),
     ],
   },
 };
