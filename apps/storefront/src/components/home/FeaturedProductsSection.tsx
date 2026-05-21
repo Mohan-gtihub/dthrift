@@ -34,7 +34,7 @@ export async function FeaturedProductsSection({
   });
 
   return (
-    <section className="mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12 py-16 sm:py-24 featured-products">
+    <section className="mx-auto max-w-400 px-5 sm:px-8 lg:px-12 py-16 sm:py-24 featured-products">
       <div className="flex items-end justify-between mb-10 border-b-2 border-black pb-5">
         <TextReveal
           as="h2"

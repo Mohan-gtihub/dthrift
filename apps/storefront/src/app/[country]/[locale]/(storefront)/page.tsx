@@ -6,7 +6,6 @@ import { FeaturedProductsSection } from "@/components/home/FeaturedProductsSecti
 import { HeroSection } from "@/components/home/HeroSection";
 import { LifestyleGrid } from "@/components/home/LifestyleGrid";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
-import { ScrollStatement } from "@/components/home/ScrollStatement";
 import { TestimonialStrip } from "@/components/home/TestimonialStrip";
 import { ValueStrip } from "@/components/home/ValueStrip";
 import { Reveal } from "@/components/ui/Reveal";
@@ -87,7 +86,6 @@ export default async function HomePage({ params }: HomePageProps) {
       <HeroSection basePath={basePath} locale={locale} />
       <BrandMarquee />
       <CollectionShowcase basePath={basePath} locale={locale} />
-      <ScrollStatement />
       <Reveal>
         <FeaturedProductsSection
           basePath={basePath}

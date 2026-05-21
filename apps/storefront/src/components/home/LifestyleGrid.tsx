@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { Reveal } from "@/components/motion";
+import { BLUR_DARK } from "@/lib/blur";
 
 interface LifestyleGridProps {
   basePath: string;
@@ -22,7 +23,7 @@ const LIFESTYLE_IMAGES = [
     aspect: "aspect-square",
   },
   {
-    src: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80",
+    src: "https://images.unsplash.com/photo-1483118714900-540cf339fd46?w=600&q=80",
     alt: "Urban streetwear",
     span: "md:col-span-1",
     aspect: "aspect-square",
@@ -47,7 +48,7 @@ export async function LifestyleGrid({ basePath, locale }: LifestyleGridProps) {
 
   return (
     <section className="bg-black py-16 sm:py-24">
-      <div className="mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-400 px-5 sm:px-8 lg:px-12">
         <Reveal>
           <div className="mb-10 flex items-end justify-between border-b border-white/20 pb-5">
             <div>
@@ -72,7 +73,7 @@ export async function LifestyleGrid({ basePath, locale }: LifestyleGridProps) {
             <Reveal key={img.src} delay={i * 80}>
               <Link
                 href={`${basePath}/products`}
-                className={`group relative block overflow-hidden rounded-xl ${img.span} ${img.aspect}`}
+                className={`group relative block overflow-hidden rounded-xl bg-neutral-800 ${img.span} ${img.aspect}`}
               >
                 <Image
                   src={img.src}
@@ -80,6 +81,8 @@ export async function LifestyleGrid({ basePath, locale }: LifestyleGridProps) {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 33vw"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DARK}
                 />
                 <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/30" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">

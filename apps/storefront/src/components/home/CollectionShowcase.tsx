@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { Reveal } from "@/components/motion";
+import { BLUR_LIGHT } from "@/lib/blur";
 
 interface CollectionShowcaseProps {
   basePath: string;
@@ -22,7 +23,7 @@ export async function CollectionShowcase({
   });
 
   return (
-    <section className="mx-auto max-w-[1600px] px-5 py-16 sm:px-8 sm:py-24 lg:px-12">
+    <section className="mx-auto max-w-400 px-5 py-16 sm:px-8 sm:py-24 lg:px-12">
       <Reveal>
         <div className="mb-10 border-b-2 border-black pb-5">
           <h2 className="text-3xl tracking-tight sm:text-5xl">
@@ -39,7 +40,7 @@ export async function CollectionShowcase({
         <Reveal>
           <Link
             href={`${basePath}/products`}
-            className="group relative block aspect-[3/4] overflow-hidden rounded-2xl bg-gray-100"
+            className="group relative block aspect-3/4 overflow-hidden rounded-2xl bg-gray-100"
           >
             <Image
               src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80"
@@ -48,8 +49,10 @@ export async function CollectionShowcase({
               className="object-cover transition-transform duration-700 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, 50vw"
               priority
+              placeholder="blur"
+              blurDataURL={BLUR_LIGHT}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-10">
               <span className="mb-2 inline-block text-xs font-bold uppercase tracking-[0.25em] text-primary">
                 {t("newSeason")}
@@ -80,8 +83,10 @@ export async function CollectionShowcase({
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                placeholder="blur"
+                blurDataURL={BLUR_LIGHT}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-8">
                 <span className="mb-1 inline-block text-xs font-bold uppercase tracking-[0.25em] text-primary">
                   {t("trending")}
@@ -107,8 +112,10 @@ export async function CollectionShowcase({
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                placeholder="blur"
+                blurDataURL={BLUR_LIGHT}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-8">
                 <span className="mb-1 inline-block text-xs font-bold uppercase tracking-[0.25em] text-primary">
                   {t("essentials")}

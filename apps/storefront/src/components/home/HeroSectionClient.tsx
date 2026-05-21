@@ -13,6 +13,7 @@ import {
   TextReveal,
   useReducedMotion,
 } from "@/components/motion";
+import { BLUR_DARK } from "@/lib/blur";
 
 interface HeroStrings {
   tagline: string;
@@ -63,6 +64,8 @@ export function HeroSectionClient({
         priority
         className="object-cover"
         sizes="100vw"
+        placeholder="blur"
+        blurDataURL={BLUR_DARK}
       />
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-black/50" />

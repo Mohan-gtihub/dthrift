@@ -29,7 +29,7 @@ export async function ValueStrip({ locale }: ValueStripProps) {
   ];
 
   return (
-    <section className="mx-auto max-w-[1600px] px-5 py-16 sm:px-8 sm:py-24 lg:px-12">
+    <section className="mx-auto max-w-400 px-5 py-16 sm:px-8 sm:py-24 lg:px-12">
       <Stagger className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-black bg-black md:grid-cols-3">
         {values.map((v, i) => (
           <StaggerItem
