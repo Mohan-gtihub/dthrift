@@ -2,6 +2,7 @@ import type { Category } from "@spree/sdk";
 import Link from "next/link";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { PageTransition } from "@/components/motion";
 import { getCategories } from "@/lib/data/categories";
 
 interface StorefrontLayoutProps {
@@ -61,7 +62,9 @@ export default async function StorefrontLayout({
           <CategoryLinks categories={rootCategories} basePath={basePath} />
         </nav>
       )}
-      <main className="flex-1">{children}</main>
+      <main className="flex-1">
+        <PageTransition>{children}</PageTransition>
+      </main>
       <Footer
         rootCategories={rootCategories}
         basePath={basePath}

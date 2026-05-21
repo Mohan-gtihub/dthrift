@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
+import { BrandMarquee } from "@/components/home/BrandMarquee";
+import { BrandStory } from "@/components/home/BrandStory";
+import { CollectionShowcase } from "@/components/home/CollectionShowcase";
 import { FeaturedProductsSection } from "@/components/home/FeaturedProductsSection";
 import { HeroSection } from "@/components/home/HeroSection";
+import { LifestyleGrid } from "@/components/home/LifestyleGrid";
+import { NewsletterSection } from "@/components/home/NewsletterSection";
+import { ScrollStatement } from "@/components/home/ScrollStatement";
+import { TestimonialStrip } from "@/components/home/TestimonialStrip";
+import { ValueStrip } from "@/components/home/ValueStrip";
+import { Reveal } from "@/components/ui/Reveal";
 import { getMarkets, resolveCurrency } from "@/lib/data/markets";
 import { generateHomeMetadata } from "@/lib/metadata/home";
 import { getDefaultCountry, getDefaultLocale } from "@/lib/store";
@@ -76,12 +85,24 @@ export default async function HomePage({ params }: HomePageProps) {
   return (
     <div>
       <HeroSection basePath={basePath} locale={locale} />
-      <FeaturedProductsSection
-        basePath={basePath}
-        locale={locale}
-        country={country}
-        currency={currency}
-      />
+      <BrandMarquee />
+      <CollectionShowcase basePath={basePath} locale={locale} />
+      <ScrollStatement />
+      <Reveal>
+        <FeaturedProductsSection
+          basePath={basePath}
+          locale={locale}
+          country={country}
+          currency={currency}
+        />
+      </Reveal>
+      <LifestyleGrid basePath={basePath} locale={locale} />
+      <BrandStory basePath={basePath} locale={locale} />
+      <Reveal delay={100}>
+        <ValueStrip locale={locale} />
+      </Reveal>
+      <TestimonialStrip locale={locale} />
+      <NewsletterSection locale={locale} />
     </div>
   );
 }

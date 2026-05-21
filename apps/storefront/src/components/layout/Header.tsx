@@ -1,7 +1,6 @@
 import type { Category } from "@spree/sdk";
 import { User } from "lucide-react";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { CartButton } from "@/components/layout/CartButton";
@@ -57,17 +56,17 @@ export async function Header({
         <LazyMobileMenu rootCategories={rootCategories} basePath={basePath} />
       }
       center={
-        <Link href={basePath || "/"} className="flex items-center min-w-0">
-          <Image
-            src="/spree.png"
-            alt={storeName}
-            width={90}
-            height={32}
-            className="max-w-full object-contain"
-            style={{ width: "auto", height: "auto" }}
-            fetchPriority="high"
-            loading="eager"
-          />
+        <Link
+          href={basePath || "/"}
+          aria-label={storeName}
+          className="flex items-center min-w-0"
+        >
+          <span className="font-display text-2xl sm:text-[1.75rem] leading-none tracking-tight text-foreground select-none">
+            DTHRIFT
+            <sup className="ml-0.5 align-super text-[0.5em] tracking-normal">
+              ™
+            </sup>
+          </span>
         </Link>
       }
       rightStart={

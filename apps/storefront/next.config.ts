@@ -63,6 +63,15 @@ const nextConfig: NextConfig = {
         pathname: "/rails/active_storage/**",
       },
       // Custom backend domain: set NEXT_PUBLIC_BACKEND_IMAGE_HOST (e.g. api.your-store.com)
+      // Unsplash for editorial / lifestyle imagery
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "plus.unsplash.com",
+      },
       ...(process.env.NEXT_PUBLIC_BACKEND_IMAGE_HOST
         ? [
             {

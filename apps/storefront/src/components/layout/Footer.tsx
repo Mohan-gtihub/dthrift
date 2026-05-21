@@ -29,13 +29,18 @@ export async function Footer({
   const tp = await getTranslations({ locale, namespace: "policies" });
 
   return (
-    <footer className="bg-primary text-gray-300">
+    <footer className="bg-black text-gray-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-5">
           {/* Demo-only: Remove for production. */}
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
-            <span className="text-xl font-bold text-white">{storeName}</span>
+            <span className="font-display text-2xl leading-none tracking-tight text-primary select-none">
+              DTHRIFT
+              <sup className="ml-0.5 align-super text-[0.5em] tracking-normal">
+                ™
+              </sup>
+            </span>
             <p className="mt-4 text-sm text-neutral-400">
               {t("description") || storeDescription}
             </p>
