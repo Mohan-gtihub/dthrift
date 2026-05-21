@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment files (NEVER commit secrets — use .env.example instead)
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Claude Code
+.claude/
+
+# --- Backend (Rails) ---
+backend/.bundle
+backend/log/*
+!backend/log/.keep
+backend/tmp/*
+!backend/tmp/.keep
+backend/tmp/pids/*
+!backend/tmp/pids/.keep
+backend/storage/*
+!backend/storage/.keep
+backend/public/assets
+backend/config/master.key
+backend/coverage/
+backend/.ruby-lsp/
+backend/app/assets/builds/*
+!backend/app/assets/builds/.keep
+
+# --- Storefront (Next.js) ---
+apps/storefront/.next/
+apps/storefront/out/
+apps/storefront/build/
+apps/storefront/coverage/
+apps/storefront/.vercel
+apps/storefront/*.tsbuildinfo
+apps/storefront/next-env.d.ts
